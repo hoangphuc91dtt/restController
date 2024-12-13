@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chỉnh Sửa Công Ty</title>
+</head>
+<body>
+<h2>Chỉnh Sửa Công Ty</h2>
+<form th:action="@{/editCompany}" th:object="${company}" method="POST">
+    <input type="hidden" th:field="*{id}"/>
+    Tên Công Ty:
+    <input type="text" th:field="*{nameCompany}" required/>
+    <br/>
+    <input type="submit" value="Lưu"/>
+</form>
+</body>
+</html>

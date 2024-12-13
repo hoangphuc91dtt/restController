@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh Sách Người Dùng</title>
+</head>
+<body>
+<h2>Danh Sách Người Dùng</h2>
+<a href="/addUser">
+  <button type="button">Add New User</button>
+</a>
+<hr>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Company</th>
+    <th>Action</th>
+  </tr>
+  <tr th:each="user : ${users}">
+    <td th:text="${user.id}">1</td>
+    <td th:text="${user.firstName}">John</td>
+    <td th:text="${user.lastName}">Doe</td>
+    <td th:text="${user.company.nameCompany}">Company A</td>
+    <td>
+      <a th:href="@{/editUser/{id}(id=${user.id})}">Edit</a> |
+      <a th:href="@{/deleteUser/{id}(id=${user.id})}">Delete</a>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

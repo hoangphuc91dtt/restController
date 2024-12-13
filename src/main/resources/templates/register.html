@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+</head>
+<body>
+<h2>Register</h2>
+<form th:action="@{/auth/register}" method="post">
+  <div>
+    <label> First Name: <input type="text" name="firstName" required/> </label>
+  </div>
+  <div>
+    <label> Last Name: <input type="text" name="lastName" required/> </label>
+  </div>
+  <div>
+    <label> Email: <input type="email" name="email" required/> </label>
+  </div>
+  <div>
+    <label> Password: <input type="password" name="password" required/> </label>
+  </div>
+  <div>
+    <label>
+      Company:
+      <select name="companyId" required>
+        <option value="" disabled selected>Select a Company</option>
+        <option th:each="company : ${companies}" th:value="${company.id}" th:text="${company.nameCompany}">
+          Company Name
+        </option>
+      </select>
+
+    </label>
+  </div>
+
+  <div>
+    <input type="submit" value="Sign Up"/>
+  </div>
+</form>
+<p th:if="${param.error}" style="color:red;">User already exists!</p>
+<p th:if="${param.success}" style="color:green;">Registration successful!</p>
+</body>
+</html>

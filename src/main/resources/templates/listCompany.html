@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh Sách Công Ty</title>
+</head>
+<body>
+<h2>Danh Sách Công Ty</h2>
+<a href="/addCompany">
+  <button type="button">Add New Company</button>
+</a>
+<hr>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Tên Công Ty</th>
+    <th>Action</th>
+  </tr>
+  <tr th:each="company : ${companies}">
+    <td th:text="${company.id}">1</td>
+    <td th:text="${company.nameCompany}">Company A</td>
+    <td>
+      <a th:href="@{/editCompany/{id}(id=${company.id})}">Edit</a> |
+      <a th:href="@{/deleteCompany/{id}(id=${company.id})}">Delete</a>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

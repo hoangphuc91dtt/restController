@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm Công Ty</title>
+</head>
+<body>
+<h2>Thêm Công Ty</h2>
+<form th:action="@{/addCompany}" th:object="${company}" method="POST">
+    Tên Công Ty:
+    <input type="text" th:field="*{nameCompany}" required/>
+    <br/>
+    <input type="submit" value="Tạo Công Ty"/>
+</form>
+</body>
+</html>

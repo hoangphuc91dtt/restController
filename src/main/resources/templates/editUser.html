@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chỉnh Sửa Người Dùng</title>
+</head>
+<body>
+<h2>Chỉnh Sửa Người Dùng</h2>
+<form th:action="@{/editUser}" th:object="${user}" method="POST">
+  <input type="hidden" th:field="*{id}"/>
+  First Name:
+  <input type="text" th:field="*{firstName}" required/>
+  <br/>
+  Last Name:
+  <input type="text" th:field="*{lastName}" required/>
+  <br/>
+  Company:
+  <select th:field="*{company.id}" required>
+    <option th:each="company : ${companies}" th:value="${company.id}" th:text="${company.nameCompany}"></option>
+  </select>
+  <br/>
+  <input type="submit" value="Lưu"/>
+</form>
+</body>
+</html>
